@@ -1,0 +1,31 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/articles/add">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">Title</td><td>: <input type="text" name="title" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label" valign="top">Domain</td><td valign="top">: <input type="text" name="domain" required></td>
+                </tr>
+                <tr>
+                    <td class="label">Category</td><td>: <input type="text" name="category" required></td>
+                 </tr>
+                 <tr>				
+                 <tr>
+                    <td class="label" valign="top">Text</td><td valign="top">: <textarea name="text" required cols="80" rows="5"></textarea></td>
+                </tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>

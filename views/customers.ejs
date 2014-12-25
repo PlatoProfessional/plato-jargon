@@ -1,0 +1,51 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addUser();">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Title</th>
+                    <th>Domain</th>
+                    <th>Category</th>
+                    <th>URL</th>			
+                    <th width="120px">Action</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].title%></td>
+                    <td><%=data[i].domain%></td>
+                    <td><%=data[i].category%></td>
+                    <td>
+						<a href=<%=data[i].base_url%>><%=data[i].base_url%></a>
+					</td>			
+                    <td>
+                        <a class="a-inside edit" href="../customers/edit/<%=data[i].gk%>">Edit</a>
+                       
+                        <a class="a-inside delete" href="../customers/delete/<%=data[i].gk%>">Delete</a>
+                       
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>
