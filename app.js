@@ -17,7 +17,7 @@ var connection  = require('express-myconnection');
 var mysql = require('mysql');
 
 // all environments
-app.set('port', process.env.PORT || 4300);
+app.set('port', process.env.PORT );
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //app.use(express.favicon());
