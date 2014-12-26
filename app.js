@@ -42,11 +42,11 @@ app.use(
     
     connection(mysql,{
         
-        host: 'localhost',
-        user: 'root',
-        password : 'root',
-        port : 3306, //port mysql
-        database:'platoDB'
+        host: '127.11.123.130',
+        user: 'admindnn22y1',
+        password : 'CmYpAC5XVn3H',
+        port : 3306, 
+        database:'plato'
 
     },'pool') //or single
 
