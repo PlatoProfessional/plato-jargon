@@ -7,7 +7,6 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
-var java = require('java');
 
 //load articles route
 var articles = require('./routes/articles'); 
@@ -17,7 +16,8 @@ var connection  = require('express-myconnection');
 var mysql = require('mysql');
 
 // all environments
-app.set('port', process.env.PORT || 4300);
+app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //app.use(express.favicon());
@@ -42,13 +42,13 @@ app.use(
     
     connection(mysql,{
         
-        host: '127.11.123.130',
-        user: 'admindnn22y1',
-        password : 'CmYpAC5XVn3H',
-        port : 3306, 
-        database:'plato'
+	  host     : process.env.OPENSHIFT_MYSQL_DB_HOST,
+	  user     : process.env.OPENSHIFT_MYSQL_DB_USERNAME,
+	  pass     : process.env.OPENSHIFT_MYSQL_DB_PASSWORD,
+	  port     : process.env.OPENSHIFT_MYSQL_DB_PORT,
+	  database : 'stembuds'
 
-    },'pool') //or single
+    },'pool') 
 
 );
 
